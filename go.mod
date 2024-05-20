@@ -1,4 +1,4 @@
-module github.com/paketo-buildpacks/python-start
+module github.com/initializ-buildpacks/python-start
 
 go 1.18
 
