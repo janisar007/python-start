@@ -32,7 +32,7 @@ var (
 	}
 
 	config struct {
-		Cpython        string `json:"cpython"`
+		Cpython        string `json:"cpython:1.13.5"`
 		Pip            string `json:"pip"`
 		PipInstall     string `json:"pip-install"`
 		Miniconda      string `json:"miniconda"`
