@@ -68,9 +68,9 @@ func TestIntegration(t *testing.T) {
 		Execute(root)
 	Expect(err).NotTo(HaveOccurred())
 
-	// cpythonBuildpack, err = buildpackStore.Get.
-	// 	Execute(config.Cpython)
-	// Expect(err).NotTo(HaveOccurred())
+	cpythonBuildpack, err = buildpackStore.Get.
+		Execute(config.Cpython)
+	Expect(err).NotTo(HaveOccurred())
 
 	pipBuildpack, err = buildpackStore.Get.
 		Execute(config.Pip)
