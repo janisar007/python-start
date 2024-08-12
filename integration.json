@@ -1,7 +1,6 @@
 {
   "builders": [
-    "index.docker.io/paketobuildpacks/builder:buildpackless-base",
-    "index.docker.io/paketobuildpacks/builder-jammy-buildpackless-base:latest"
+    "index.docker.io/initializbuildpacks/securepacks-initzbuilder:latest"
   ],
   "cpython": "github.com/initializ-buildpacks/cpython",
   "pip": "github.com/initializ-buildpacks/pip",
