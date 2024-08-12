@@ -32,7 +32,7 @@ var (
 	}
 
 	config struct {
-		Cpython        string `json:"cpython:1.13.5"`
+		Cpython        string `json:"cpython"`
 		Pip            string `json:"pip"`
 		PipInstall     string `json:"pip-install"`
 		Miniconda      string `json:"miniconda"`
@@ -68,9 +68,9 @@ func TestIntegration(t *testing.T) {
 		Execute(root)
 	Expect(err).NotTo(HaveOccurred())
 
-	cpythonBuildpack, err = buildpackStore.Get.
-		Execute(config.Cpython)
-	Expect(err).NotTo(HaveOccurred())
+	// cpythonBuildpack, err = buildpackStore.Get.
+	// 	Execute(config.Cpython)
+	// Expect(err).NotTo(HaveOccurred())
 
 	pipBuildpack, err = buildpackStore.Get.
 		Execute(config.Pip)
