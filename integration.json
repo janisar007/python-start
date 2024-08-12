@@ -2,7 +2,7 @@
   "builders": [
     "index.docker.io/initializbuildpacks/securepacks-initzbuilder:latest"
   ],
-  "cpython": "github.com/initializ-buildpacks/cpython",
+  "cpython": "github.com/initializ-buildpacks/cpython:1.13.5",
   "pip": "github.com/initializ-buildpacks/pip",
   "pip-install": "github.com/initializ-buildpacks/pip-install",
   "miniconda": "github.com/initializ-buildpacks/miniconda",
