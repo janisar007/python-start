@@ -1,12 +1,12 @@
 {
   "builders": [
-    "index.docker.io/initializbuildpacks/securepacks-initzbuilder:latest"
+    "index.docker.io/paketobuildpacks/builder-jammy-full:latest"
   ],
-  "cpython": "github.com/initializ-buildpacks/cpython",
-  "pip": "github.com/initializ-buildpacks/pip",
-  "pip-install": "github.com/initializ-buildpacks/pip-install",
-  "miniconda": "github.com/initializ-buildpacks/miniconda",
-  "conda-env-update": "github.com/initializ-buildpacks/conda-env-update",
-  "poetry":"github.com/initializ-buildpacks/poetry",
-  "poetry-install": "github.com/initializ-buildpacks/poetry-install"
+  "cpython": "github.com/paketo-buildpacks/cpython",
+  "pip": "github.com/paketo-buildpacks/pip",
+  "pip-install": "github.com/paketo-buildpacks/pip-install",
+  "miniconda": "github.com/paketo-buildpacks/miniconda",
+  "conda-env-update": "github.com/paketo-buildpacks/conda-env-update",
+  "poetry":"github.com/paketo-buildpacks/poetry",
+  "poetry-install": "github.com/paketo-buildpacks/poetry-install"
 }
