@@ -1,8 +1,8 @@
-name: Test 
+name: Test Pull Request
 
 on:
   workflow_dispatch: {}
-  
+
 concurrency:
   group: pr-${{ github.event.number }}
   cancel-in-progress: true
@@ -12,7 +12,7 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-22.04
     outputs:
-      builders: ${{ steps.builders.outputs.builders }}
+      builders: ${{ steps.get_builders.outputs.builders }}
     steps:
     - name: Setup Go
       uses: actions/setup-go@v3
@@ -26,11 +26,12 @@ jobs:
       run: ./scripts/unit.sh
 
     - name: Get builders from integration.json
-      id: builders
+      id: get_builders
       run: |
         source "${{ github.workspace }}/scripts/.util/builders.sh"
         builders="$(util::builders::list "${{ github.workspace }}/integration.json")"
         echo "builders=${builders}" >> $GITHUB_ENV
+        echo "::set-output name=builders::${builders}"
 
   integration:
     name: Integration Tests with Builders
@@ -38,7 +39,7 @@ jobs:
     needs: unit
     strategy:
       matrix:
-        builder: ${{ fromJSON(env.builders) }}
+        builder: ${{ fromJson(needs.unit.outputs.builders) }}
       fail-fast: false
     steps:
     - name: Setup Go
@@ -54,7 +55,7 @@ jobs:
     - name: Run Integration Tests
       run: ./scripts/integration.sh --use-token --builder ${{ matrix.builder }}
       env:
-        GIT_TOKEN: ${{ github.token }}
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         TMPDIR: "${{ runner.temp }}"
 
   roundup:
